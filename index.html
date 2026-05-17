@@ -1,206 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Olá Mundo Glorificado</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo da Imaginação 🌈</title>
     
-    <!-- CDNs (Bootstrap, AOS, FontAwesome) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-otD+5ZuTqTs1M/AR4RzN1xg6r5Z3B2UYKDPqcqtOk2pDoM3hAUfrsObdYQyURvxym7M+K0CK5K1QO7u0J8u8iw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" integrity="sha512-GGq4x8ZWuQJiR6PbQ5wsN04kZqqMDbYVpPgZ4wCYMdqyBmsEikEw5RkbqGI62InQ1+/IodacL8R4i7rdG2Y3MQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" integrity="sha512-BxQ2FADzafV8vZ6F0kM+X8HTKbF6DwlD4VnDx+B7Zw5b9HYh1W9P6j/6ARWc1LzWkpc6nTP6rkVIB657d0i3ng==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <!-- Bootstrap 5 para estrutura rápida -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para desenhos e ícones legais -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts com uma fonte bem divertida -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
     <style>
-      :root {
-        --bg-gradient: radial-gradient(circle at top, rgba(255, 223, 93, 0.25), transparent 45%),
-                       linear-gradient(135deg, #120d3a 0%, #1c2340 45%, #0b1127 100%);
-        --btn-gradient: linear-gradient(90deg, #f9c74f, #ff8c42);
-        --text-light: #f8f9fa;
-      }
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(180deg, #e0f2fe 0%, #fef08a 100%);
+            color: #334155;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-      html {
-        scroll-behavior: smooth;
-      }
+        /* Animação para os desenhos flutuarem */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
 
-      body {
-        min-height: 100vh;
-        background: var(--bg-gradient);
-        color: var(--text-light);
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        overflow-x: hidden;
-      }
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-      .hero {
-        padding: 8rem 0 5rem;
-      }
+        .floating-icon {
+            animation: float 4s ease-in-out infinite;
+            display: inline-block;
+        }
 
-      .hero-title {
-        font-size: clamp(2.5rem, 6vw, 5rem);
-        line-height: 1.1;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-      }
+        .sun-icon {
+            animation: spin-slow 20s linear infinite;
+            color: #f59e0b;
+        }
 
-      .hero-subtitle {
-        max-width: 700px;
-        font-size: 1.15rem;
-        opacity: 0.85;
-      }
+        /* Topo da página (Hero) */
+        .hero-kids {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            position: relative;
+        }
 
-      .feature-card {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: #db2777;
+            text-shadow: 3px 3px 0px #fbcfe8;
+        }
 
-      /* Efeito Hover sutil nos cards para melhorar a experiência do usuário */
-      .feature-card:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.09);
-        border-color: rgba(255, 255, 255, 0.2);
-      }
+        /* Cards de Atividades */
+        .kid-card {
+            background: white;
+            border: 4px solid #fbcfe8;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 0px #fbcfe8;
+        }
 
-      .feature-icon {
-        width: 3.5rem;
-        height: 3.5rem;
-        display: grid;
-        place-items: center;
-        border-radius: 1rem;
-        background: rgba(255, 255, 255, 0.08);
-      }
+        .kid-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 0px #fbcfe8;
+            border-color: #f472b6;
+        }
 
-      .btn-glorificado {
-        background: var(--btn-gradient);
-        border: 0;
-        color: #120d3a;
-        font-weight: 700;
-        transition: filter 0.2s ease, transform 0.2s ease;
-      }
+        .card-pink { border-color: #fbcfe8; box-shadow: 0 10px 0px #fbcfe8; }
+        .card-pink:hover { border-color: #f472b6; box-shadow: 0 15px 0px #f472b6; }
 
-      .btn-glorificado:hover {
-        filter: brightness(1.1);
-        transform: scale(1.02);
-        color: #120d3a;
-      }
+        .card-blue { border-color: #bae6fd; box-shadow: 0 10px 0px #bae6fd; }
+        .card-blue:hover { border-color: #38bdf8; box-shadow: 0 15px 0px #38bdf8; }
 
-      .wave-divider {
-        fill: #13162d;
-        width: 100%;
-        height: auto;
-      }
+        .card-green { border-color: #bbf7d0; box-shadow: 0 10px 0px #bbf7d0; }
+        .card-green:hover { border-color: #4ade80; box-shadow: 0 15px 0px #4ade80; }
+
+        /* Botões fofos */
+        .btn-kids {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 5px 0px #047857;
+            transition: all 0.1s ease;
+        }
+
+        .btn-kids:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0px #047857;
+        }
+
+        .btn-kids:hover {
+            color: white;
+            background-color: #059669;
+        }
+
+        /* Nuvens decorativas de fundo */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+            opacity: 0.8;
+            z-index: -1;
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        .cloud-1 { width: 120px; height: 40px; top: 10%; left: 10%; }
+        .cloud-2 { width: 150px; height: 50px; top: 20%; right: 10%; }
     </style>
-  </head>
-  <body>
+</head>
+<body>
 
-    <!-- Header / Hero Section -->
-    <header class="hero text-center">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-9" data-aos="fade-up">
-            <span class="badge rounded-pill bg-warning text-dark mb-3 px-3 py-2 fw-semibold">Hello World Glorificado</span>
-            <h1 class="hero-title mb-4">Olá Mundo <span class="text-warning">Glorificado</span></h1>
-            <p class="hero-subtitle mx-auto mb-5">Uma resposta visual elegante construída com Bootstrap, animações AOS e ícones Font Awesome. Perfeita para mostrar um “Olá Mundo” com brilho e presença.</p>
-            <div class="d-flex justify-content-center gap-3">
-              <a href="#vibes" class="btn btn-glorificado btn-lg shadow-sm">Veja a Inspiração</a>
-              <a href="#features" class="btn btn-outline-light btn-lg">Explorar Recursos</a>
+    <!-- Nuvens lúdicas de fundo -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+
+    <!-- Cabeçalho Principal -->
+    <header class="hero-kids">
+        <div class="container">
+            <div class="mb-3">
+                <i class="fa-solid fa-sun fa-4x sun-icon"></i>
             </div>
-          </div>
+            <h1 class="hero-title mb-3">Mundo da Aventura! ✨</h1>
+            <p class="fs-4 text-muted">Escolha sua missão espacial de hoje e divirta-se!</p>
         </div>
-      </div>
     </header>
 
-    <!-- Wave Divider -->
-    <svg class="wave-divider" viewBox="0 0 1440 110" preserveAspectRatio="none" style="display:block; margin-bottom:-2px;" aria-hidden="true">
-      <path d="M0,32L80,42.7C160,53,320,75,480,90.7C640,107,800,117,960,112C1120,107,1280,85,1360,74.7L1440,64V120H0Z"></path>
-    </svg>
-
-    <!-- Main Content -->
-    <main>
-      <!-- Features Section -->
-      <section id="features" class="container py-5">
-        <div class="row g-4 py-4">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-card p-4 h-100 rounded-4 shadow-sm">
-              <div class="feature-icon text-warning mb-3">
-                <i class="fas fa-magic fa-lg" aria-hidden="true"></i>
-              </div>
-              <h2 class="h4">Visual Impactante</h2>
-              <p class="mb-0 opacity-75">Design com cores modernas, tipografia forte e um estilo polido para destacar sua mensagem desde o primeiro segundo.</p>
-            </div>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-card p-4 h-100 rounded-4 shadow-sm">
-              <div class="feature-icon text-info mb-3">
-                <i class="fas fa-chart-line fa-lg" aria-hidden="true"></i>
-              </div>
-              <h2 class="h4">Animações Delicadas</h2>
-              <p class="mb-0 opacity-75">AOS adiciona movimento leve e fluido às seções conforme o usuário rola pelo site, elevando a experiência com elegância.</p>
-            </div>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-card p-4 h-100 rounded-4 shadow-sm">
-              <div class="feature-icon text-danger mb-3">
-                <i class="fas fa-star fa-lg" aria-hidden="true"></i>
-              </div>
-              <h2 class="h4">Ícones que Brilham</h2>
-              <p class="mb-0 opacity-75">Font Awesome traz símbolos familiares e expressivos que comunicam impacto imediato em qualquer seção do layout.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Vibes Section -->
-      <section id="vibes" class="py-5" style="background: rgba(255,255,255,0.02);">
-        <div class="container py-4">
-          <div class="row align-items-center gy-5">
-            <div class="col-lg-6" data-aos="fade-right">
-              <div class="p-4 p-sm-5 rounded-4 border border-white border-opacity-10 shadow-sm" style="background: rgba(0,0,0,0.1);">
-                <h2 class="mb-3 h3">O poder de um simples “Olá Mundo”</h2>
-                <p class="opacity-75">Este exemplo mostra como um conceito básico pode se tornar memorável quando bem apresentado. O uso de gradientes, cartões translucentes e uma tipografia destacada transforma a mensagem em algo digno de apresentação.</p>
-                <ul class="list-unstyled mt-4 mb-0">
-                  <li class="mb-2"><i class="fas fa-check-circle text-warning me-2" aria-hidden="true"></i>Bootstrap para estrutura responsiva</li>
-                  <li class="mb-2"><i class="fas fa-check-circle text-warning me-2" aria-hidden="true"></i>AOS para animações suaves</li>
-                  <li class="mb-0"><i class="fas fa-check-circle text-warning me-2" aria-hidden="true"></i>Font Awesome para ícones modernos</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-6" data-aos="fade-left">
-              <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg">
-                <div class="d-flex align-items-center justify-content-center h-100" style="background: radial-gradient(circle at top left, rgba(249, 199, 79, 0.2), transparent 50%), linear-gradient(135deg, rgba(255,140,66,0.25), rgba(20,13,58,0.95));">
-                  <div class="text-center px-4">
-                    <p class="fs-6 mb-2 text-uppercase text-warning fw-semibold letter-spacing-1">Seu primeiro passo</p>
-                    <h3 class="display-6 fw-bold mb-3">Glorifique o básico</h3>
-                    <p class="mb-0 opacity-75 max-width-auto mx-auto" style="max-width: 400px;">Uma página de sucesso começa com um layout atraente, boas cores e mensagens claras.</p>
-                  </div>
+    <!-- Seção de Cards/Desenhos -->
+    <main class="container py-4">
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Card 1: Espaço -->
+            <div class="col-md-4 col-sm-6">
+                <div class="kid-card card-blue p-4 text-center h-100">
+                    <div class="floating-icon text-info mb-3" style="animation-delay: 0s;">
+                        <i class="fa-solid fa-rocket fa-4x"></i>
+                    </div>
+                    <h2 class="h3 fw-bold text-info">Missão Espacial</h2>
+                    <p class="text-secondary">Viaje por planetas desconhecidos e descubra estrelas brilhantes no infinito!</p>
+                    <button class="btn btn-kids bg-info" style="box-shadow: 0 5px 0px #0284c7;" onclick="alert('🚀 Próxima parada: Marte!')">Decolar!</button>
                 </div>
-              </div>
             </div>
-          </div>
+
+            <!-- Card 2: Animais -->
+            <div class="col-md-4 col-sm-6">
+                <div class="kid-card card-pink p-4 text-center h-100">
+                    <div class="floating-icon text-danger mb-3" style="animation-delay: 0.5s;">
+                        <i class="fa-solid fa-cat fa-4x"></i>
+                    </div>
+                    <h2 class="h3 fw-bold text-danger">Reino Animal</h2>
+                    <p class="text-secondary">Conheça gatinhos filhotes, leões corajosos e todos os bichinhos da nossa floresta viva.</p>
+                    <button class="btn btn-kids bg-danger" style="box-shadow: 0 5px 0px #be123c;" onclick="alert('🐱 Miau! Bem-vindo ao zoológico!')">Visitar</button>
+                </div>
+            </div>
+
+            <!-- Card 3: Pintura -->
+            <div class="col-md-4 col-sm-6">
+                <div class="kid-card card-green p-4 text-center h-100">
+                    <div class="floating-icon text-success mb-3" style="animation-delay: 1s;">
+                        <i class="fa-solid fa-palette fa-4x"></i>
+                    </div>
+                    <h2 class="h3 fw-bold text-success">Artes e Cores</h2>
+                    <p class="text-secondary">Solte a imaginação usando tintas mágicas, pincéis coloridos e muitos desenhos legais.</p>
+                    <button class="btn btn-kids bg-success" style="box-shadow: 0 5px 0px #15803d;" onclick="alert('🎨 Misturando azul com amarelo... virou verde!')">Pintar</button>
+                </div>
+            </div>
+
         </div>
-      </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center py-5 text-white-50 small">
-      <div class="container">
-        <p class="mb-1">Criado com Bootstrap, AOS e Font Awesome.</p>
-        <p class="mb-0">&copy; Uma saudação gloriosa para quem quer impressionar.</p>
-      </div>
+    <!-- Rodapé Colorido -->
+    <footer class="text-center py-5 mt-5">
+        <div class="container">
+            <p class="mb-2 text-muted fw-bold">Feito com <i class="fa-solid fa-heart text-danger floating-icon"></i> para pequenos exploradores.</p>
+            <div class="d-flex justify-content-center gap-3 fs-3 text-secondary-50">
+                <i class="fa-solid fa-balloon text-warning"></i>
+                <i class="fa-solid fa-ice-cream text-primary"></i>
+                <i class="fa-solid fa-gamepad text-success"></i>
+            </div>
+        </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-ZJQ8fz9d3T+gSlGwtzn4bmfNqsZV8XFpA7tKfGvCyMgVRQyG6dcXd2rgYeWdgoOHwgh+cdBTJoqN0fM6Q1VAPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk+z6wRs1c5Y0c8TUrl5ph6x8nQwB3Hq7Nn5UBCzBZ5Xgq2FqOsTivpzyw+jUkgQDEKXte+a9U8kf0fQvNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-      // Inicialização centralizada do AOS
-      AOS.init({ 
-        duration: 900, 
-        once: true, 
-        easing: 'ease-out-cubic',
-        offset: 120
-      });
-    </script>
-  </body>
+    <!-- Bootstrap JS (Opcional para interações extras) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
